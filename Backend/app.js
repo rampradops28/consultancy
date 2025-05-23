@@ -10,11 +10,17 @@ const app = express();
 const PORT = config.port;
 connectDB();
 
-// Middlewares
+const allowedOrigins = [
+  "http://localhost:5173",                          // for local development
+  "https://consultancy-three-psi.vercel.app"        // for deployed frontend
+];
+
+// CORS configuration
 app.use(cors({
-    credentials: true,
-    origin: ['consultancy-three-psi.vercel.app']
-}))
+  origin: allowedOrigins,
+  credentials: true, // allow cookies to be sent
+}));
+
 app.use(express.json()); // parse incoming request in json format
 app.use(cookieParser())
 
