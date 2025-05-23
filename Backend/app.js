@@ -10,8 +10,7 @@ const app = express();
 const PORT = config.port;
 connectDB();
 
-const allowedOrigins = [
-  "http://localhost:5173",                          // for local development
+const allowedOrigins = [                          // for local development
   "https://consultancy-three-psi.vercel.app"        // for deployed frontend
 ];
 
